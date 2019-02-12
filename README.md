@@ -1,2 +1,3 @@
-# SimplyChat
-We can change the name later lol
+# Simply
+
+A new Flutter application. More info coming soon..
