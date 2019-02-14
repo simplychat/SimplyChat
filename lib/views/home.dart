@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simply/utils/constants.dart';
 import 'package:simply/views/chat.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,18 +23,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('SimplyChat'),
+          title: Text(appName),
         ),
         body:
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-                padding: const EdgeInsets.all(30.0),
+                padding: EdgeInsets.all(30.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(smallRadius),
                   ),
                   child: TextField(
                     decoration: InputDecoration(
@@ -50,21 +51,16 @@ class _HomePageState extends State<HomePage> {
             ),
             RaisedButton(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10.0),
-                  topLeft: Radius.circular(10.0),
-                  bottomLeft: Radius.circular(10.0),
-                  bottomRight: Radius.circular(10.0),
-                ),
+                borderRadius: BorderRadius.all(Radius.circular(smallRadius)),
               ),
               color: Colors.green[500],
-              child: const Text(
+              child: Text(
                 'Go',
                 semanticsLabel: 'Enter chat',
                 style: TextStyle(color: Colors.white),),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => ChatRoom(nickName: nickName,)),);
+                    builder: (context) => ChatRoom(nickName: nickName,)));
               },),
           ],
         )
