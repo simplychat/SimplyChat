@@ -3,9 +3,8 @@ import 'package:simply/utils/constants.dart';
 import 'package:simply/widgets/ChatBox.dart';
 
 class ChatRoom extends StatefulWidget {
-  final String nickName;
 
-  ChatRoom({Key key, @required this.nickName}) : super(key: key);
+  ChatRoom({Key key}) : super(key: key);
 
   @override
   _ChatRoomState createState() => _ChatRoomState();
@@ -60,7 +59,7 @@ class _ChatRoomState extends State<ChatRoom> {
         ),
       ),
       body: Center(
-          child: ChatBox(
+          child: LeftChatBox(
               textToShow: 'Lorem ipsum dolor sit amet, consectetur adipiscing '
                   'elit, sed do eiusmod tempor incididunt ut labore et dolore magna'
                   ' aliqua.')

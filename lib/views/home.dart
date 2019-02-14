@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simply/utils/constants.dart';
 import 'package:simply/views/chat.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -11,11 +12,52 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  String nickName = "";
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  void _updateNickName(String name) {
+  var txt = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _prefs.then((SharedPreferences prefs) {
+      return (prefs.getInt('id') ?? 0);
+    });
+    _prefs.then((SharedPreferences prefs) {
+      return (prefs.getString('nickname') ?? '');
+    });
+    _initializeNameTextField();
+    _setIdIfEmpty();
+  }
+
+  Future _initializeNameTextField() async {
+    txt.text = await _prefs.then((SharedPreferences prefs) {
+      return (prefs.getString('nickname') ?? '');
+    });
+  }
+
+  Future<void> _setNameIfEmpty(String newName) async {
+    final SharedPreferences prefs = await _prefs;
+
     setState(() {
-      nickName = name;
+      prefs.setString('nickname', newName).then((bool success) {
+        return newName;
+      });
+    });
+  }
+
+  Future<void> _setIdIfEmpty() async {
+    final SharedPreferences prefs = await _prefs;
+    final generatedId = DateTime.now().millisecondsSinceEpoch;
+
+    setState(() {
+      if (prefs.getInt('id') == null) {
+        // Todo: store generatedId in FireBase
+        // It's ok for this number to be long since users do not need to know
+        // this: as of now, all chat making are random
+        prefs.setInt('id', generatedId).then((bool success) {
+          return generatedId;
+        });
+      }
     });
   }
 
@@ -42,8 +84,9 @@ class _HomePageState extends State<HomePage> {
                       contentPadding: EdgeInsets.all(20.0),
                       labelText: 'Nickname',
                     ),
+                    controller: txt,
                     onChanged: (name) {
-                      _updateNickName(name);
+                      _setNameIfEmpty(name);
                     },
                     autofocus: false,
                   ),
@@ -55,12 +98,12 @@ class _HomePageState extends State<HomePage> {
               ),
               color: Colors.green[500],
               child: Text(
-                'Go',
+                goButtonText,
                 semanticsLabel: 'Enter chat',
                 style: TextStyle(color: Colors.white),),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => ChatRoom(nickName: nickName,)));
+                    builder: (context) => ChatRoom()));
               },),
           ],
         )
