@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "213381293745-cdki44p20ipshjp3jathq4qqa40rp5gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myfirstchatapp.simply",
+            "certificate_hash": "ddf729e1056aaa6e9b1861ff682d8cd925c45fd7"
+          }
+        },
+        {
           "client_id": "213381293745-pjr48e690uuml3ckvl61mj9lv8pjvamo.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213381293745-pjr48e690uuml3ckvl61mj9lv8pjvamo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213381293745-4j3e2n8julr5ts7oci9aaukrbbm3bs1s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.myfirstchatapp.simply"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2
