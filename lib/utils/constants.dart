@@ -6,6 +6,7 @@ const String goButtonText = 'Go';
 const double materialMarginSmall = 12.0;
 const double materialMargin = 24.0;
 const double chatAvatarSize = 48.0;
+const double materialMarginLarge = 48.0;
 
 // Radii
 const double miniRadius = 5.0;
