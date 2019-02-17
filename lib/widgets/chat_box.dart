@@ -31,10 +31,10 @@ class _ChatBoxState extends State<ChatBox> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        left: materialMarginSmall + (widget.leftBox? 0 : chatAvatarSize),
-        right: materialMarginSmall + (widget.leftBox? chatAvatarSize : 0),
-        top: materialMarginSmall,
-        bottom: materialMarginSmall
+        left: widget.leftBox? 0 : chatAvatarSize,
+        right: widget.leftBox? chatAvatarSize : 0,
+        top: materialMarginTiny,
+        bottom: materialMarginTiny
       ),
       child: Container(
         decoration: BoxDecoration(
