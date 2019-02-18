@@ -9,7 +9,7 @@ A new Flutter application. More info coming soon..
 - [x] SharedPreferences: generate and store data locally
 - [ ] Firebase support
 - [ ] Add RANDOM logic
-- [ ] Chat page basic ui:
+- [x] Chat page basic ui:
  a list view of chat boxes, upon clicking send, a chat box populates locally with the typed text
 - [ ] Connect chat with Firebase
 
