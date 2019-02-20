@@ -3,6 +3,7 @@ const String appName = 'ChatBee';
 const String goButtonText = 'Go';
 
 // Margins
+const double materialMarginTiny = 6.0;
 const double materialMarginSmall = 12.0;
 const double materialMargin = 24.0;
 const double chatAvatarSize = 48.0;
