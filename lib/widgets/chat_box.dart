@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:simply/utils/constants.dart';
+import 'package:simply/widgets/avatar.dart';
 
 class RightChatBox extends ChatBox {
   final String textToShow;
+  final String url;
 
-  RightChatBox({Key key, @required this.textToShow}) :
-        super(key: key, textToShow: textToShow, leftBox: false);
+  RightChatBox({Key key, @required this.textToShow, @required this.url}) :
+        super(key: key, textToShow: textToShow, url: url, leftBox: false);
 }
 
 class LeftChatBox extends ChatBox {
   final String textToShow;
+  final String url;
 
-  LeftChatBox({Key key, @required this.textToShow}) :
-        super(key: key, textToShow: textToShow, leftBox: true);
+  LeftChatBox({Key key, @required this.textToShow, @required this.url}) :
+        super(key: key, textToShow: textToShow, url: url, leftBox: true);
 }
 
 abstract class ChatBox extends StatefulWidget {
   final String textToShow;
   final bool leftBox;
+  final String url;
 
-  ChatBox({Key key, @required this.textToShow, @required this.leftBox})
+  ChatBox({Key key, @required this.textToShow, @required this.leftBox, @required this.url})
       : super(key: key);
 
   @override
@@ -35,13 +39,9 @@ class _ChatBoxState extends State<ChatBox> {
           ? MainAxisAlignment.start
           : MainAxisAlignment.end,
       children: <Widget>[
+        widget.leftBox ? Avatar(url: widget.url) : Container(),
         Container(
-            padding: EdgeInsets.only(
-                left: widget.leftBox ? 0 : chatAvatarSize,
-                right: widget.leftBox ? chatAvatarSize : 0,
-                top: materialMarginTiny,
-                bottom: materialMarginTiny
-            ),
+            padding: EdgeInsets.all(materialMarginSmall),
             child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
@@ -52,7 +52,8 @@ class _ChatBoxState extends State<ChatBox> {
                   child: Text(widget.textToShow),
                 )
             )
-        )
+        ),
+        widget.leftBox ? Container() : Avatar(url: widget.url)
       ],
     );
   }

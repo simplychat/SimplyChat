@@ -12,16 +12,21 @@ class ChatRoom extends StatefulWidget {
 
 class _ChatRoomState extends State<ChatRoom> {
   final List<ChatBox> _messages = <ChatBox>[];
-  final TextEditingController _chatController = new TextEditingController();
+  final TextEditingController _chatController = TextEditingController();
   var messageToSend = "";
 
   void _handleSubmit(String text) {
-    _chatController.clear();
-    ChatBox message = RightChatBox(textToShow: text);
+    if (text.isNotEmpty) {
+      _chatController.clear();
+      ChatBox message = RightChatBox(
+          textToShow: text,
+          url: "https://d2nnw4siy9tr7v.cloudfront.net/21pressroom/files/2010/11/lineup3.jpg"
+      );
 
-    setState(() {
-      _messages.insert(0, message);
-    });
+      setState(() {
+        _messages.insert(0, message);
+      });
+    }
   }
 
   @override
