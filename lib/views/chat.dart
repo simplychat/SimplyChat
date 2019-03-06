@@ -40,7 +40,7 @@ class _ChatRoomState extends State<ChatRoom> {
         children: <Widget>[
           Flexible(
             child: ListView.builder(
-              padding: EdgeInsets.all(materialMarginSmall),
+              padding: EdgeInsets.all(MATERIAL_MARGIN_SMALL),
               reverse: true,
               itemBuilder: (_, int index) => _messages[index],
               itemCount: _messages.length,
@@ -50,7 +50,7 @@ class _ChatRoomState extends State<ChatRoom> {
               decoration: BoxDecoration(
                   color: Colors.blue
               ),
-              padding: EdgeInsets.all(materialMarginSmall),
+              padding: EdgeInsets.all(MATERIAL_MARGIN_SMALL),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -59,7 +59,7 @@ class _ChatRoomState extends State<ChatRoom> {
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(smallRadius),
+                            borderRadius: BorderRadius.circular(SMALL_RADIUS),
                           ),
                           child:
                           TextField(
@@ -67,7 +67,7 @@ class _ChatRoomState extends State<ChatRoom> {
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.all(
-                                  materialMarginSmall),
+                                  MATERIAL_MARGIN_SMALL),
                             ),
                             onChanged: (message) {
                               messageToSend = message;
@@ -78,7 +78,7 @@ class _ChatRoomState extends State<ChatRoom> {
                     ),
                   ),
                   Container(
-                      padding: EdgeInsets.only(left: materialMarginSmall),
+                      padding: EdgeInsets.only(left: MATERIAL_MARGIN_SMALL),
                       child: IconButton(
                           icon: Icon(Icons.send, color: Colors.white),
                           onPressed: () {

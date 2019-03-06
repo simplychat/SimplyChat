@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(appName),
+          title: Text(APP_NAME),
         ),
         body:
         Column(
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(smallRadius),
+                    borderRadius: BorderRadius.circular(SMALL_RADIUS),
                   ),
                   child: TextField(
                     decoration: InputDecoration(
@@ -94,11 +94,11 @@ class _HomePageState extends State<HomePage> {
             ),
             RaisedButton(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(smallRadius)),
+                borderRadius: BorderRadius.all(Radius.circular(SMALL_RADIUS)),
               ),
               color: Colors.green[500],
               child: Text(
-                goButtonText,
+                GO_BUTTON_TEXT,
                 semanticsLabel: 'Enter chat',
                 style: TextStyle(color: Colors.white),),
               onPressed: () {

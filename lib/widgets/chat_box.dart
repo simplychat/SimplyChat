@@ -41,14 +41,14 @@ class _ChatBoxState extends State<ChatBox> {
       children: <Widget>[
         widget.leftBox ? Avatar(url: widget.url) : Container(),
         Container(
-            padding: EdgeInsets.all(materialMarginSmall),
+            padding: EdgeInsets.all(MATERIAL_MARGIN_SMALL),
             child: Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(miniRadius),
+                  borderRadius: BorderRadius.circular(MINI_RADIUS),
                 ),
                 child: Container(
-                  padding: EdgeInsets.all(materialMarginSmall),
+                  padding: EdgeInsets.all(MATERIAL_MARGIN_SMALL),
                   child: Text(widget.textToShow),
                 )
             )
