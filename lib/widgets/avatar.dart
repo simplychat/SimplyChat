@@ -17,8 +17,8 @@ class _AvatarState extends State<Avatar> {
   Widget build(BuildContext context) {
     return Container(
       child: SizedBox(
-        width: chatAvatarSize,
-        height: chatAvatarSize,
+        width: CHAT_AVATAR_SIZE,
+        height: CHAT_AVATAR_SIZE,
         child: Container(
           child: Image.network(
             widget.url,
